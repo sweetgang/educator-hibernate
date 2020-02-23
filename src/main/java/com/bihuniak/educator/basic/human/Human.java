@@ -1,6 +1,7 @@
 package com.bihuniak.educator.basic.human;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 import java.util.Date;
 
 @Entity
@@ -14,13 +15,13 @@ public class Human {
     private String lastName;
     @Enumerated( EnumType.STRING)
     private Sex sex;
-    private Date birthday;
+    private LocalDate birthday;
     @Embedded
     private Addres addres;
 
 
     public Human(String firstName, String lastName, Sex sex,
-                 Date birthday,Addres addres) {
+                 LocalDate birthday,Addres addres) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.sex = sex;

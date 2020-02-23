@@ -7,9 +7,9 @@ public class Addres {
     private String street;
     private String city;
     private String coutry;
-    private String postCode;
+    private PostCode postCode;
 
-    public Addres(String street, String city, String coutry, String postCode) {
+    public Addres(String street, String city, String coutry, PostCode postCode) {
         this.street = street;
         this.city = city;
         this.coutry = coutry;
