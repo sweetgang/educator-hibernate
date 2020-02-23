@@ -2,7 +2,7 @@ package com.bihuniak.educator.basic.human;
 
 import javax.persistence.*;
 import java.time.LocalDate;
-import java.util.Date;
+import java.util.*;
 
 @Entity
 public class Human {
@@ -19,14 +19,24 @@ public class Human {
     @Embedded
     private Addres addres;
 
+    //element colekcii tworzs nowa tabele v bazie
+    @ElementCollection
+    private List<String> numerTelefonuw = new ArrayList<String>();
+
+
+    @ElementCollection
+    private List<Addres> listaAdresuw= new ArrayList<Addres>();
+
+
 
     public Human(String firstName, String lastName, Sex sex,
-                 LocalDate birthday,Addres addres) {
+                 LocalDate birthday,List<Addres> listaAdresuw,List<String> numerTelefonuw) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.sex = sex;
         this.birthday = birthday;
-        this.addres = addres;
+        this.listaAdresuw = listaAdresuw;
+        this.numerTelefonuw = numerTelefonuw;
     }
 
     public Human() {
