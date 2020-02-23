@@ -3,6 +3,10 @@ package com.bihuniak.educator;
 import com.bihuniak.educator.basic.Car;
 import com.bihuniak.educator.basic.MyFirstRepository;
 import com.bihuniak.educator.basic.human.*;
+import com.bihuniak.educator.company.DepartmentRepository;
+import com.bihuniak.educator.company.Dpartment;
+import com.bihuniak.educator.company.Employee;
+import com.bihuniak.educator.company.EmployeeReposytorium;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -19,10 +23,10 @@ import java.util.List;
 public class EducatorApplication {
 
 	@Autowired
-	private MyFirstRepository myFirstRepository;
+	private DepartmentRepository departmentRepository;
 
 	@Autowired
-	private HumanRepository humanRepository;
+	private EmployeeReposytorium  employeeReposytorium;
 
 	public static void main(String[] args) {
 		SpringApplication.run(EducatorApplication.class, args);
@@ -30,25 +34,12 @@ public class EducatorApplication {
 
 	@PostConstruct
 	public void init() {
-		List<String> numerTelefonuw = new ArrayList<String>();
-		numerTelefonuw.add("56898936");
-		numerTelefonuw.add("99395466");
-		numerTelefonuw.add("230005409");
-		numerTelefonuw.add("3488840045");
+//		Dpartment dpartment = new Dpartment("Javga", "Daszynskiego", 67);
+//		Employee employee = new Employee("Baszyk", "Customer",dpartment);
+//		dpartment.setEmployee(employee);
+//
+//		employeeReposytorium.save(employee);
 
-		List<Addres> listaAdresuw= new ArrayList<Addres>();
-		listaAdresuw.add(new Addres("Wagonowa","Wroclaw","Poland"));
-		listaAdresuw.add(new Addres("Sztrybnicka","Wroclaw","Poland"));
-		listaAdresuw.add(new Addres("Kalkuta","Wroclaw","Poland"));
-
-
-		Human januzs = new Human("Janush", "Wyshniecki",
-				Sex.SECRET, LocalDate.of(1984, 04,23),
-				listaAdresuw,
-				numerTelefonuw);
-		humanRepository.save(januzs);
-
-		//Car car = myFirstRepository.findById(8L).get();
-		//System.out.println(car);
+		System.out.println(employeeReposytorium.findById(5L).get());
 	}
 }
